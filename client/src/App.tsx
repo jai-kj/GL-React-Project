@@ -1,5 +1,15 @@
+import { BrowserRouter as Router } from "react-router-dom"
+import Movies from "./components/Movies"
+import { ContextProvider } from "./context/context"
+
 const App = () => {
-  return <div className='text-3xl font-bold underline'>App</div>
+	return (
+		<ContextProvider>
+			<Router>
+				<Movies />
+			</Router>
+		</ContextProvider>
+	)
 }
 
 export default App
