@@ -3174,7 +3174,7 @@
                 6,
                 10
             ],
-            "poster": "",
+            "poster": "MOVIEPOSTER-SPIRAL.jpg",
             "contentRating": "",
             "duration": "PT79M",
             "releaseDate": "2018-04-06",
@@ -4480,7 +4480,7 @@
                 10,
                 10
             ],
-            "poster": "",
+            "poster": "MOVIEPOSTER-BOOKCLUB.jpg",
             "contentRating": "",
             "duration": "",
             "releaseDate": "2018-05-18",
@@ -4990,60 +4990,6 @@
         },
         {
             "id": "92",
-            "title": "Book Club",
-            "year": "2018",
-            "genres": [
-                "Comedy"
-            ],
-            "ratings": [
-                9,
-                10,
-                9,
-                4,
-                7,
-                10,
-                4,
-                1,
-                2,
-                10,
-                10,
-                5,
-                4,
-                4,
-                4,
-                10,
-                2,
-                6,
-                5,
-                9,
-                6,
-                8,
-                8,
-                1,
-                5,
-                3,
-                5,
-                9,
-                6,
-                7
-            ],
-            "poster": "",
-            "contentRating": "",
-            "duration": "",
-            "releaseDate": "2018-05-18",
-            "averageRating": 0,
-            "originalTitle": "",
-            "storyline": "Four lifelong friends have their lives forever changed after reading 50 Shades of Grey in their monthly book club.",
-            "actors": [
-                "Diane Keaton",
-                "Jane Fonda",
-                "Candice Bergen"
-            ],
-            "imdbRating": "",
-            "posterurl": ""
-        },
-        {
-            "id": "93",
             "title": "Untitled Deadpool Sequel",
             "year": "2018",
             "genres": [
@@ -5099,7 +5045,7 @@
             "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzczMjUwMzk0M15BMl5BanBnXkFtZTgwNjY4OTQ3NDM@._V1_SY500_CR0,0,337,500_AL_.jpg"
         },
         {
-            "id": "94",
+            "id": "93",
             "title": "Show Dogs",
             "year": "2018",
             "genres": [
@@ -5155,7 +5101,7 @@
             "posterurl": "https://images-na.ssl-images-amazon.com/images/M/MV5BZDdjOWMwNjYtNWE3Zi00Y2JjLTgzODItNTg1YjNjM2U3ZWMyXkEyXkFqcGdeQXVyMjM4NTM5NDY@._V1_SY500_CR0,0,337,500_AL_.jpg"
         },
         {
-            "id": "95",
+            "id": "94",
             "title": "Solo: A Star Wars Story",
             "year": "2018",
             "genres": [

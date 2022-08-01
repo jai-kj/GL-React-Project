@@ -41,6 +41,7 @@ const initialState: {
 } = {
     ...movieStates,
     movie: { ...currentMovie },
+    favouritePosters: [],
 }
 
 const StateContext = createContext(initialState)
@@ -93,8 +94,48 @@ export const useUIDispatch = () => {
         [dispatch]
     )
 
+    const loadFavourites = useCallback(
+        () => dispatch({ type: ActionTypes.LOAD_FAVOURITES }),
+        [dispatch]
+    )
+
+    const addToFavourites = useCallback(
+        (poster: string, movie: IMovie) =>
+            dispatch({
+                type: ActionTypes.ADD_TO_FAVOURITES,
+                payload: {
+                    poster,
+                    movie,
+                },
+            }),
+        [dispatch]
+    )
+
+    const removeFromFavourites = useCallback(
+        (poster: string) =>
+            dispatch({
+                type: ActionTypes.REMOVE_FROM_FAVOURITES,
+                payload: poster,
+            }),
+        [dispatch]
+    )
+
     return useMemo(
-        () => ({ getMovieLists, setMovie, resetMovie }),
-        [getMovieLists, setMovie, resetMovie]
+        () => ({
+            getMovieLists,
+            setMovie,
+            resetMovie,
+            loadFavourites,
+            addToFavourites,
+            removeFromFavourites,
+        }),
+        [
+            getMovieLists,
+            setMovie,
+            resetMovie,
+            loadFavourites,
+            addToFavourites,
+            removeFromFavourites,
+        ]
     )
 }

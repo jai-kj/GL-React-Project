@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Route, Routes } from "react-router-dom"
+import { useUIDispatch } from "../context/context"
 
 import Navbar from "./layout/Navbar"
 import MovieInfo from "./movies/MovieInfo"
@@ -15,6 +16,8 @@ const navLinks = [
 
 const Movies = () => {
     const [activeScreen, setActiceScreen] = useState(0)
+    const { loadFavourites } = useUIDispatch()
+    useEffect(() => loadFavourites(), [loadFavourites])
 
     return (
         <div className='flex flex-col h-full'>
@@ -34,7 +37,7 @@ const Movies = () => {
                             />
                         }
                     />
-                    <Route path="/movie/:id" element={<MovieInfo />} />
+                    <Route path='/movie/:id' element={<MovieInfo />} />
                 </Routes>
             </div>
         </div>

@@ -13,7 +13,6 @@ const MoviesList = ({ name, url }: INavLink) => {
 
     useEffect(() => {
         if (state[url]?.length || url === "favourite") return
-        console.count(`Fetch api: `)
         fetchData(
             {
                 method: "GET",
@@ -41,7 +40,7 @@ const MoviesList = ({ name, url }: INavLink) => {
                 <p className='py-4'>
                     {error
                         ? "Internal Server Error. Please Reload the window!"
-                        : "No records found to display!"}
+                        : "No movies found to display!"}
                 </p>
             )}
         </div>
