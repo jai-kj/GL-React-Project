@@ -8,7 +8,6 @@ const Alert = () => {
     useEffect(() => {
         if (alertMessage) setShow(true)
         else setShow(false)
-        return () => setShow(false)
     }, [alertMessage])
 
     return (
