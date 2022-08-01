@@ -18,10 +18,29 @@ const movieStates: {
     favourite: [],
 }
 
+const currentMovie: IMovie = {
+    id: "",
+    title: "",
+    year: "",
+    genres: [],
+    ratings: [],
+    poster: "",
+    contentRating: "",
+    duration: "",
+    releaseDate: "",
+    averageRating: 0,
+    originalTitle: "",
+    storyline: "",
+    actors: [],
+    imdbRating: 0,
+    posterurl: "",
+}
+
 const initialState: {
     [key: string]: any
 } = {
-    ...movieStates
+    ...movieStates,
+    movie: { ...currentMovie },
 }
 
 const StateContext = createContext(initialState)
@@ -59,5 +78,23 @@ export const useUIDispatch = () => {
         [dispatch]
     )
 
-    return useMemo(() => ({ getMovieLists }), [getMovieLists])
+    const setMovie = useCallback(
+        (movie: IMovie) =>
+            dispatch({ type: ActionTypes.SET_MOVIE, payload: movie }),
+        [dispatch]
+    )
+
+    const resetMovie = useCallback(
+        () =>
+            dispatch({
+                type: ActionTypes.RESET_MOVIE,
+                payload: { ...currentMovie },
+            }),
+        [dispatch]
+    )
+
+    return useMemo(
+        () => ({ getMovieLists, setMovie, resetMovie }),
+        [getMovieLists, setMovie, resetMovie]
+    )
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Route, Routes } from "react-router-dom"
 
 import Navbar from "./layout/Navbar"
+import MovieInfo from "./movies/MovieInfo"
 import MoviesList from "./movies/MoviesList"
 
 const navLinks = [
@@ -33,6 +34,7 @@ const Movies = () => {
                             />
                         }
                     />
+                    <Route path="/movie/:id" element={<MovieInfo />} />
                 </Routes>
             </div>
         </div>

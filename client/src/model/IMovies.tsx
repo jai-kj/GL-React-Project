@@ -26,3 +26,7 @@ export interface IMovie {
     imdbRating: number
     posterurl: string
 }
+
+export interface MovieItemProp {
+    movie: IMovie
+}

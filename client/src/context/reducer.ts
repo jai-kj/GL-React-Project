@@ -1,5 +1,7 @@
 export const ActionTypes = {
     GET_MOVIES: "GET_MOVIES",
+    SET_MOVIE: "SET_MOVIE",
+    RESET_MOVIE: "RESET_MOVIE",
 }
 
 export const reducer = (state: any, action: any) => {
@@ -9,6 +11,11 @@ export const reducer = (state: any, action: any) => {
                 ...state,
                 [action?.payload?.url]: action?.payload?.data,
             }
+
+        case ActionTypes.SET_MOVIE:
+        case ActionTypes.RESET_MOVIE:
+            return { ...state, movie: action?.payload }
+
         default:
             return state
     }
