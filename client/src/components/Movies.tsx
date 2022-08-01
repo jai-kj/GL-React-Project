@@ -28,7 +28,7 @@ const Movies = () => {
                 screen={activeScreen}
                 setScreen={(index: number) => setActiceScreen(index)}
             />
-            <div className='container mx-auto px-4 md:px-12 h-full overflow-y-auto'>
+            <div className='container mx-auto px-4 md:px-12 h-full overflow-y-scroll'>
                 <Routes>
                     <Route
                         path='/'
