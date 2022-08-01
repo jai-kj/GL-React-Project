@@ -4,7 +4,7 @@ import { useUIDispatch } from "../context/context"
 
 axios.defaults.baseURL = "http://localhost:5000"
 
-const useFetch = (isArray: boolean = true) => {
+const useFetch = () => {
     const { getMovieLists } = useUIDispatch()
     const [loading, setLoading] = useState<boolean>()
     const [error, setError] = useState<any>(null)
@@ -13,8 +13,7 @@ const useFetch = (isArray: boolean = true) => {
         setLoading(true)
         try {
             const res = await axios.request(params)
-            if (isArray)
-                getMovieLists(url, res.data)
+            getMovieLists(url, res.data)
         } catch (error) {
             axios?.isAxiosError(error)
                 ? setError(error.message ?? "Server Error")
@@ -22,7 +21,7 @@ const useFetch = (isArray: boolean = true) => {
         } finally {
             setLoading(false)
         }
-    }, [])
+    }, [getMovieLists])
 
     return useMemo(
         () => ({

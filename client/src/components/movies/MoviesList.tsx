@@ -9,7 +9,7 @@ import Loader from "../layout/Loader"
 
 const MoviesList = ({ name, url }: INavLink) => {
     const state = useUIState()
-    const { loading, error, fetchData } = useFetch(true)
+    const { loading, error, fetchData } = useFetch()
 
     useEffect(() => {
         if (state[url]?.length || url === "favourite") return
