@@ -52,6 +52,25 @@ body {
     animation: rotation 1s linear infinite;
 }
 
+.toast {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease-in-out;
+    perspective: 1000;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+    transform: translate(-50%, 5rem);
+    transition-delay: 0.3s;
+}
+
 @keyframes rotation {
     0% {
         transform: rotate(0deg);

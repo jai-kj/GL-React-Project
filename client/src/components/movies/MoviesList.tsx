@@ -30,7 +30,19 @@ const MoviesList = ({ name, url }: INavLink) => {
         <div className='h-full'>
             {loading ? (
                 <Loader />
-            ) : !error && state[url]?.length ? (
+            ) : !error && state?.filtered ? (
+                state?.filtered?.length ? (
+                    <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 justify-items-center gap-8 py-8'>
+                        {state?.filtered?.map(
+                            (movie: IMovie, index: number) => (
+                                <MovieItem movie={movie} key={index} />
+                            )
+                        )}
+                    </div>
+                ) : (
+                    <p className='py-4'>No movies found to display!</p>
+                )
+            ) : state[url]?.length ? (
                 <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 justify-items-center gap-8 py-8'>
                     {state[url]?.map((movie: IMovie, index: number) => (
                         <MovieItem movie={movie} key={index} />

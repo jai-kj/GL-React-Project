@@ -30,3 +30,7 @@ export interface IMovie {
 export interface MovieItemProp {
     movie: IMovie
 }
+
+export interface SearchBoxProps {
+    url: string
+}

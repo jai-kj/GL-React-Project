@@ -42,6 +42,8 @@ const initialState: {
     ...movieStates,
     movie: { ...currentMovie },
     favouritePosters: [],
+    filtered: null,
+    alertMessage: "",
 }
 
 const StateContext = createContext(initialState)
@@ -66,6 +68,14 @@ export const useUIDispatch = () => {
     const dispatch = useContext(DispatchContext)
 
     if (!dispatch) throw new Error("Use dispatch within a Dispatch Provider")
+
+    const setAlert = useCallback(
+        (message: string, time: number = 5000) => {
+            dispatch({ type: ActionTypes.SET_ALERT, payload: message })
+            setTimeout(() => dispatch({ type: ActionTypes.RESET_ALERT }), time)
+        },
+        [dispatch]
+    )
 
     const getMovieLists = useCallback(
         (url: string, data: IMovie) =>
@@ -100,23 +110,41 @@ export const useUIDispatch = () => {
     )
 
     const addToFavourites = useCallback(
-        (poster: string, movie: IMovie) =>
+        (poster: string, movie: IMovie) => {
             dispatch({
                 type: ActionTypes.ADD_TO_FAVOURITES,
                 payload: {
                     poster,
                     movie,
                 },
+            })
+            setAlert("Movie Added to Favourites!")
+        },
+        [dispatch, setAlert]
+    )
+
+    const removeFromFavourites = useCallback(
+        (poster: string) => {
+            dispatch({
+                type: ActionTypes.REMOVE_FROM_FAVOURITES,
+                payload: poster,
+            })
+            setAlert("Movie Removed from Favourites!")
+        },
+        [dispatch, setAlert]
+    )
+
+    const filterMovies = useCallback(
+        (url: string, toMatch: string) =>
+            dispatch({
+                type: ActionTypes.SEARCH_MOVIES,
+                payload: { url, toMatch },
             }),
         [dispatch]
     )
 
-    const removeFromFavourites = useCallback(
-        (poster: string) =>
-            dispatch({
-                type: ActionTypes.REMOVE_FROM_FAVOURITES,
-                payload: poster,
-            }),
+    const resetFilteredMovies = useCallback(
+        () => dispatch({ type: ActionTypes.RESET_SEARCH }),
         [dispatch]
     )
 
@@ -128,6 +156,9 @@ export const useUIDispatch = () => {
             loadFavourites,
             addToFavourites,
             removeFromFavourites,
+            filterMovies,
+            resetFilteredMovies,
+            setAlert,
         }),
         [
             getMovieLists,
@@ -136,6 +167,9 @@ export const useUIDispatch = () => {
             loadFavourites,
             addToFavourites,
             removeFromFavourites,
+            filterMovies,
+            resetFilteredMovies,
+            setAlert,
         ]
     )
 }

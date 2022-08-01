@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom"
 import { useUIDispatch } from "../context/context"
 
 import Navbar from "./layout/Navbar"
+import Alert from "./layout/Alert"
 import MovieInfo from "./movies/MovieInfo"
 import MoviesList from "./movies/MoviesList"
 
@@ -21,6 +22,7 @@ const Movies = () => {
 
     return (
         <div className='flex flex-col h-full'>
+            <Alert />
             <Navbar
                 navLinks={navLinks}
                 screen={activeScreen}

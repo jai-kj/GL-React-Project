@@ -13,7 +13,6 @@ const MovieItem = ({ movie }: MovieItemProp) => {
     )
 
     const handleAddToFavourites = useCallback(() => {
-        console.log("isAddedToFavourites :", isAddedToFavourites())
         isAddedToFavourites()
             ? removeFromFavourites(movie?.poster)
             : addToFavourites(movie?.poster, movie)
